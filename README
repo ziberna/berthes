@@ -1,3 +1,10 @@
+Check screens for sample of output and command-line interface.
+--------------------------------------------------------------
+
+
+Help message
+============
+
 usage: junkbackup [-h] [-cp | -cp!] [-acp | -acp!] [-cl | -cl!] [-arm | -arm!]
                   [-dr | -dr!] [-v | -v!]
 
@@ -18,7 +25,10 @@ optional arguments:
   -v          be verbose
   -v!         do NOT be verbose
 
-Config file syntax:
+
+
+Config file syntax
+==================
 
 # this is a comment, it starts with a hash symbol
 [FLAGS] # default flags (which can be overridden as cmd args)
@@ -44,4 +54,3 @@ subdir/filename
 /source/filename1:subdir/filename2
 /source/filename3:filename4
 /source/filename5
-

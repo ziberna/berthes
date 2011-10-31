@@ -57,6 +57,8 @@ def clean(root, dir=None, ignore_list=[]):
             # else, remove item
             elif remove(item_abspath, item_path):
                 counter += 1
+            else:
+                write('ignored %s' % item_path)
         else:
             write('ignored %s' % item_path)
     # get empty-state
@@ -92,8 +94,11 @@ def create_dir(path):
     return (retcode == 0)
 
 def copy(src, trg, src_short=None, trg_short=None):
+    if not src_short: src_short = src
+    if not trg_short: trg_short = trg
     # ask first (if set)
     if ARG.ASKCOPY and not confirm('Copy '+src+' to '+trg_short+'?'):
+        write('ignored %s' % src_short)
         return 0
     # check if target dir tree exists
     trg_tree = '/'.join(trg.split('/')[:-1])
