@@ -19,8 +19,6 @@
 
 import os
 import re
-import subprocess
-import glob
 
 from junkbackup.parse import parse, add_root_path
 from junkbackup.file_op import copy, clean
