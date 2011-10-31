@@ -40,12 +40,12 @@ class JunkBackup(object):
             for root in self.root:
                 # clean root directory (if set)
                 if ARG.CLEAN:
-                    write(':: Cleaning files from '+root)
+                    write(':: Cleaning files from %s' % root)
                     rm_count, empty = clean(root, ignore_list=self.noremove)
                     write('%i files removed' % rm_count)
                 # copy to root directory (if set)
                 if ARG.COPY:
-                    write(':: Copying files to '+root)
+                    write(':: Copying files to %s' % root)
                     cp_count = self.copy(root)
                     write('%i files copied' % cp_count)
         
@@ -72,7 +72,7 @@ def parse_file(conf_path=CONF_PATH):
     try:
         conf_raw = open(conf_path).read()
     except IOError:
-        write('failed: file '+conf_path+' does\'n exist')
+        write("failed: file %s doesn't exist" % conf_path)
         return None
     # parse text, pass arguments to JunkBackup
     return JunkBackup(*parse(conf_raw))

@@ -96,7 +96,9 @@ def write(text):
     text = re.sub(r"^::", r"\033[1;32m::\033[m", text)
     # highlight file operations
     text = re.sub(r"^removed", r"  \033[1;34mremoved\033[m", text)
-    text = re.sub(r"^copied", r"  \033[1;33mcopied\033[m", text)
+    if re.match(r"^copied", text):
+        text = re.sub(r"^copied", r"  \033[1;33mcopied\033[m", text)
+        text = re.sub(r" to ", r"\033[1;33m to \033[m", text)
     text = re.sub(r"^ignored", r"  \033[1;35mignored\033[m", text)
     text = re.sub(r"^failed", r"  \033[1;31mfailed\033[m", text)
     text = re.sub(r"^([a-zA-z0-9]+)", r"  \033[1;36m\1\033[m", text)
