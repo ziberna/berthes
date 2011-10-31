@@ -1,0 +1,9 @@
+#!/usr/bin/env python3
+import junkbackup
+
+# (optional) change config path and uncomment it:
+#junkbackup.CONF_PATH = '/home/myname/.config/junkbackup'
+
+junkbackup.cli_init()
+JB = junkbackup.parse_file()
+if JB: JB.run()
