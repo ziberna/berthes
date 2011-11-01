@@ -22,11 +22,11 @@ from junkbackup.tools import trim
 
 def parse(conf_raw):
     # remove comments
-    conf_raw = re.sub(r" *#.*(\n|$)", "", conf_raw)
-    # remove empty lines (start, middle, end)
-    conf_raw = re.sub(r"^\n", "", conf_raw)
-    conf_raw = re.sub("\n\n", "\n", conf_raw)
-    conf_raw = re.sub("\n$", "", conf_raw)
+    conf_raw = re.sub(r" *#.*?(\n|$)", "", conf_raw)
+    # trim spaces and tabs
+    conf_raw = re.sub(r"(?<=\n)( |\t)*|( |\t)*(?=\n)", "", conf_raw)
+    # remove empty lines (start|middle|end)
+    conf_raw = re.sub(r"^\n+|(?<=\n)\n+|\n+$", "", conf_raw)
     
     # split by lines
     conf_lines = conf_raw.split("\n")
