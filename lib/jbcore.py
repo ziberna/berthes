@@ -1,5 +1,3 @@
-#!/usr/bin/env python3
-#
 # JunkBackup
 # Copyright (C) 2011 Kantist
 #
@@ -68,7 +66,7 @@ class JunkBackup(object):
 
 #================================= Parse file ================================#
 def parse_file(conf_path=CONF_PATH):
-    if ARG.has('CONF'): conf_path = ARG.CONF
+    if ARG.CONF: conf_path = ARG.CONF
     # read configuration file
     try:
         conf_raw = open(conf_path).read()
