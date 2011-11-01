@@ -68,11 +68,12 @@ class JunkBackup(object):
 
 #================================= Parse file ================================#
 def parse_file(conf_path=CONF_PATH):
+    if ARG.has('CONF'): conf_path = ARG.CONF
     # read configuration file
     try:
         conf_raw = open(conf_path).read()
     except IOError:
-        write("failed: file %s doesn't exist" % conf_path)
+        write("failed: file '%s' doesn't exist" % conf_path, force=True)
         return None
     # parse text, pass arguments to JunkBackup
     return JunkBackup(*parse(conf_raw))
@@ -87,6 +88,7 @@ def cli_init():
     ARG.add('ASKREMOVE', opt='arm', help='ask for each remove')
     ARG.add('DRYRUN', opt='dr', help='perform a dry run')
     ARG.add('VERBOSE', opt='v', help='be verbose')
+    ARG.parser.add_argument('-conf', metavar='conf_path', help='path to config file')
     ARG.parse()
     
 #==================================== TEST ===================================#

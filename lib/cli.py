@@ -62,9 +62,13 @@ class Arg(object):
         for name in self._opt_:
             opt = self.opt(name)
             yes = args[opt]
-            no = args[opt+'!']
+            no = args['%s!' % opt]
             state = yes if (yes or no) else None
             self.set(name, state)
+            del args[opt]
+            del args['%s!' % opt]
+        for name in args:
+            self.set(name.upper(), args[name])
     
     def has(self, name):
         return name in self.__dict__
@@ -91,8 +95,8 @@ ARG = Arg()
 
 #============================== User interaction =============================#
 # this is really a specific method for JunkBackup, so change it to your liking
-def write(text):
-    if not ARG.VERBOSE: return
+def write(text, force=False):
+    if not force and not ARG.VERBOSE: return
     text = re.sub(r"^::", r"\033[1;32m::\033[m", text)
     # highlight file operations
     text = re.sub(r"^removed", r"  \033[1;34mremoved\033[m", text)
