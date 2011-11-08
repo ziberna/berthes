@@ -1,14 +1,17 @@
-Check screens for sample of output and command-line interface.
---------------------------------------------------------------
+
+    Berthes (after Russell's 5-minutes-ago hypothesis)  (C) 2011  Jure Žiberna
+    This program comes with ABSOLUTELY NO WARRANTY.
+    This is free software, and you are welcome to redistribute it
+    under the terms of the GNU General Public License, version 3 or later.
 
 
 Help message
 ============
 
-usage: junkbackup [-h] [-cp | -cp!] [-acp | -acp!] [-cl | -cl!] [-arm | -arm!]
+usage: berthes [-h] [-cp | -cp!] [-acp | -acp!] [-cl | -cl!] [-arm | -arm!]
                   [-dr | -dr!] [-v | -v!]
 
-Junkbackup
+Berthes
 
 optional arguments:
   -h, --help  show this help message and exit
@@ -54,3 +57,12 @@ subdir/filename
 /source/filename1:subdir/filename2
 /source/filename3:filename4
 /source/filename5
+
+
+Why Russell's 5-minutes-ago hypothesis?
+=======================================
+
+Because moving backed-up configuration files to a new system makes
+the system behave as if it was configured after a long period of time.
+Bertrand Russell's hypothesis states that the world might have been
+created 5 minutes ago together with all our memories of previous events.
