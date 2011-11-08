@@ -1,21 +1,21 @@
-# JunkBackup
-# Copyright (C) 2011 Kantist
+# Berthes (after Russell's 5-minutes-ago hypothesis)
+# Copyright (C) 2011 Jure Žiberna
 #
-#     This program is free software: you can redistribute it and/or modify
-#     it under the terms of the GNU General Public License as published by
-#     the Free Software Foundation, either version 3 of the License, or
-#     (at your option) any later version.
-#     
-#     This program is distributed in the hope that it will be useful,
-#     but WITHOUT ANY WARRANTY; without even the implied warranty of
-#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-#     GNU General Public License for more details.
-#     
-#     You should have received a copy of the GNU General Public License
-#     along with this program.
-#     If not, see http://www.gnu.org/licenses/gpl-3.0.html
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
 #
-# JunkBackup allows overriding arguments from config file via command-line
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.
+# If not, see http://www.gnu.org/licenses/gpl-3.0.html
+#
+# Berthes allows overriding arguments from config file via command-line
 # arguments. So when the config file is parsed, I need to be able to tell
 # whether argument was overridden or not. This means there are 3 states:
 #  - yes
@@ -94,7 +94,7 @@ class Arg(object):
 ARG = Arg()
 
 #============================== User interaction =============================#
-# this is really a specific method for JunkBackup, so change it to your liking
+# this is really a specific method for Berthes, so change it to your liking
 def write(text, force=False):
     if not force and not ARG.VERBOSE: return
     text = re.sub(r"^::", r"\033[1;32m::\033[m", text)

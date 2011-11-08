@@ -1,32 +1,32 @@
-# JunkBackup
-# Copyright (C) 2011 Kantist
+# Berthes (after Russell's 5-minutes-ago hypothesis)
+# Copyright (C) 2011 Jure Žiberna
 #
-#     This program is free software: you can redistribute it and/or modify
-#     it under the terms of the GNU General Public License as published by
-#     the Free Software Foundation, either version 3 of the License, or
-#     (at your option) any later version.
-#     
-#     This program is distributed in the hope that it will be useful,
-#     but WITHOUT ANY WARRANTY; without even the implied warranty of
-#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
-#     GNU General Public License for more details.
-#     
-#     You should have received a copy of the GNU General Public License
-#     along with this program.
-#     If not, see http://www.gnu.org/licenses/gpl-3.0.html
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.
+# If not, see http://www.gnu.org/licenses/gpl-3.0.html
 
 import os
 import re
 
-from junkbackup.parse import parse, add_root_path
-from junkbackup.file_op import copy, clean
-from junkbackup.cli import ARG, write
+from berthes.parse import parse, add_root_path
+from berthes.file_op import copy, clean
+from berthes.cli import ARG, write
 
 #============================== Global variables =============================#
-CONF_PATH = os.environ['HOME'] + "/.config/junkbackup"
+CONF_PATH = os.environ['HOME'] + "/.config/berthes"
 
 #=============================== Working  class ==============================#
-class JunkBackup(object):
+class Berthes(object):
     def __init__(self, root=[], paths=[], nocopy=[], noremove=[]):
         self.root = root
         self.paths = paths
@@ -73,13 +73,13 @@ def parse_file(conf_path=CONF_PATH):
     except IOError:
         write("failed: file '%s' doesn't exist" % conf_path, force=True)
         return None
-    # parse text, pass arguments to JunkBackup
-    return JunkBackup(*parse(conf_raw))
+    # parse text, pass arguments to Berthes
+    return Berthes(*parse(conf_raw))
 
 #=============================== User interface ==============================#
 def cli_init():
     global ARG;
-    ARG.description('Junkbackup')
+    ARG.description('Berthes')
     ARG.add('COPY', opt='cp', help='copy to backup dirs')
     ARG.add('ASKCOPY', opt='acp', help='ask for each copy')
     ARG.add('CLEAN', opt='cl', help='clean backup dirs')
@@ -92,5 +92,5 @@ def cli_init():
 #==================================== TEST ===================================#
 if __name__ == '__main__':
     cli_init()
-    JB = parse_file()
-    if JB: JB.run()
+    BT = parse_file()
+    if BT: BT.run()

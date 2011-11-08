@@ -1,1 +1,1 @@
-from junkbackup.jbcore import *
+from berthes.core import *
