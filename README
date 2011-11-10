@@ -5,6 +5,14 @@
     under the terms of the GNU General Public License, version 3 or later.
 
 
+Installation
+============
+1. copy the file from bin to your $PATH (e.g. /usr/bin)
+2. copy berthes directory to your $PYTHONPATH (e.g. /usr/lib/python3.2/site-packages)
+3. create file ~/.config/berthes
+4. check configuration syntax below and edit the file ~/.config/berthes
+
+
 Help message
 ============
 
