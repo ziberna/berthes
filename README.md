@@ -62,7 +62,7 @@ Config file syntax
     /source/filename3:filename4
     /source/filename5
 
-Licence
+License
 -------
 
     Berthes (after Russell's 5-minutes-ago hypothesis)  (C) 2011  Jure Žiberna
